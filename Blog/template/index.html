@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header {
+            text-align: center;
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+        }
+        .post {
+            margin-top: 20px;
+        }
+        .post-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+        }
+        .post-content {
+            margin-top: 10px;
+
+        }
+        .post-box {
+            border: 1px solid #ddd; /* Add a border around the content */
+            padding: 10px; /* Add padding inside the content box */
+            margin-top: 10px; /* Add some spacing above the content */
+            background-color: #f9f9f9; /* Optional background color for the content box */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My Blog</h1>
+        <p>Welcome to my blog.</p>
+    </div>
+    <div class="post">
+        {%for pt in posts reversed%}
+        <a style="text-decoration:none" href="/gost/{{pt.id}}" >
+        <p class="post-meta">{{pt.date}}</p>
+        <h2 class="post-box">{{pt.title}}</h2>
+        <div class="post-box">
+            <p>{{pt.details | truncatewords:30}}</p>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+</html>
